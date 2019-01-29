@@ -28,12 +28,11 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
-            <form class="form-signin">
+            <form class="form-signin" action="includes/login.php" method="POST">
               <div class="form-label-group w-100">
                 <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
                 <label for="username">Username</label>
               </div>
-
               <div class="form-label-group">
                 <input type="password" id="password" class="form-control" placeholder="Password" required>
                 <label for="password">Password</label>
@@ -46,7 +45,12 @@
       </div>
     </div>
 </div>		
-
+<br>
+<footer class="page-footer font-small black">
+	<div class="footer-copyright text-center py-3"> Copyright 2019 @ PT. Arisoft Riset Informatika
+		
+	</div>
+</footer>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 </body>
 	
