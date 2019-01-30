@@ -29,7 +29,7 @@
 		 ?>     	
 		 <h2>Selamat Datang di AyoAbsen</h2>
 		 <p>AyoAbsen merupakan sebuah sistem informasi absensi karyawan.</p>
-		 <a href="logout.php">Logout</a>
+		<!-- <a href="logout.php">Logout</a>-->
 	    </div>
     </div>
 </div>

@@ -34,7 +34,6 @@
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                 	<thead>
                 		<tr>
-                			<th>ID</th>
                 			<th>Tanggal</th>
                 			<th>ID Slack</th>
                 			<th>Nama Slack</th>
@@ -45,7 +44,7 @@
                 		</tr>
                 		<tbody>
                 			<tr>
-                				<th>1</th>
+                				
                 				<th>1</th>
                 				<th>1</th>
                 				<th>1</th>
