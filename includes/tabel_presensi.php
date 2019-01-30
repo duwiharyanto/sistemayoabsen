@@ -6,22 +6,60 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<title>Tabel Presensi</title>
-	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
 	<link rel="stylesheet" href="../assets/css/sb-admin.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
+
 <body id="page-top">
  	<?php 
  	require '../navbar.php';
  	 ?>
+
 <div id="wrapper">
 	<?php 
 	require '../sidebar.php';
-	 ?>
-</div> 	 
-<div id="content-wrapper">
-	<div class="container-fluid"></div>
+	 ?> 	 
+
+	<div id="content-wrapper">
+
+	   <div class="container-fluid">
+		 <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Tabel Presensi</a>
+            </li>
+          </ol>
+
+		  <div class="table-responsive">
+                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                	<thead>
+                		<tr>
+                			<th>ID</th>
+                			<th>Tanggal</th>
+                			<th>ID Slack</th>
+                			<th>Nama Slack</th>
+                			<th>Waktu IN</th>
+                			<th>Waktu OUT</th>
+                			<th>Total Jam</th>
+                			<th>Opsi</th>
+                		</tr>
+                		<tbody>
+                			<tr>
+                				<th>1</th>
+                				<th>1</th>
+                				<th>1</th>
+                				<th>1</th>
+                				<th>1</th>
+                				<th>1</th>
+                				<th>1</th>
+                				<th>1</th>
+                			</tr>
+                		</tbody>
+                	</thead>
+            </table>
+          </div>      	
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>

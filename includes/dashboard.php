@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>Tabel Message</title>
+	<title>Tabel Presensi</title>
 	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
 	<link rel="stylesheet" href="../assets/css/sb-admin.css">
@@ -23,34 +23,11 @@
 
 	<div id="content-wrapper">
 
-	   <div class="container-fluid">
+	     <div class="container-fluid">
 		<?php 
 		require '../breadcrumbs.php';
-		 ?>
-
-		  <div class="table-responsive">
-                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
-                	<thead>
-                		<tr>
-                			<th>ID</th>
-                			<th>ID Slack</th>
-                			<th>Timestamp</th>
-                			<th>Message</th>
-                			<th>Opsi</th>
-                		</tr>
-                		<tbody>
-                			<tr>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
-                			</tr>
-                		</tbody>
-                	</thead>
-            </table>
-          </div>      	
-	   </div>
+		 ?>     	
+	    </div>
     </div>
 </div>
 
