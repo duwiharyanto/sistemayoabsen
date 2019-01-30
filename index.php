@@ -44,8 +44,8 @@ require_once "config/config.php";
             	} else { ?>
             		<div class="row">
             			<div class="col-md-12">
-            				<div class="alert alert-danger" role="alert" id="signin-alert"> 
-            					<button type="button" class="close" data-dismiss="alert" aria-label="close" id="signin-fail"><span aria-hidden="true"></span>&times;</button>
+            				<div class="alert alert-danger" role="alert" id="alert"> 
+            					<button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true"></span>&times;</button>
             					<h4>Login gagal.</h4>
             					<h4>Username atau Password salah.</h4>
             				</div>
@@ -83,6 +83,13 @@ require_once "config/config.php";
 <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="assets/jquery-easing/jquery.easing.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 500);
+});
+</script>
 </body>
 	
 </html>
