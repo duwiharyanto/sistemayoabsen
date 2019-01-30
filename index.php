@@ -1,9 +1,14 @@
+<?php 
+
+require_once "config/config.php";
+ ?>
+
 <!DOCTYPE html>
 <html>
-bootstrap/<head>
+<head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Tabel Presensi</title>
+	<title>AyoAbsen Landing Page</title>
 	<link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -28,16 +33,39 @@ bootstrap/<head>
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
-            <form class="form-signin" action="includes/login.php" method="POST">
+            <?php 
+            if (isset($_POST['signin'])) {
+            	$username = trim(mysqli_real_escape_string($connection, $_POST['username']));
+            	$password = sha1(mysqli_real_escape_string($connection, $_POST['password']));
+            	$sql = mysqli_query($connection, "SELECT * FROM tb_user WHERE username = '$username' AND password = '$password'") or die(mysqli_error($connection));
+            	if (mysqli_num_rows($sql) > 0) {
+            		$_SESSION['username'] = $username;
+            		echo "<script>window.location='includes/dashboard.php'</script>";
+            	} else { ?>
+            		<div class="row">
+            			<div class="col-md-12">
+            				<div class="alert alert-danger" role="alert" id="signin-alert"> 
+            					<button type="button" class="close" data-dismiss="alert" aria-label="close" id="signin-fail"><span aria-hidden="true"></span>&times;</button>
+            					<h4>Login gagal.</h4>
+            					<h4>Username atau Password salah.</h4>
+            				</div>
+            			</div>
+            		</div>
+            		<?php 
+            	}
+            }
+
+             ?>
+            <form class="form-signin" action="" method="POST">
               <div class="form-label-group w-100">
-                <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+                <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
                 <label for="username">Username</label>
               </div>
-              <div class="form-label-group">
-                <input type="password" id="password" class="form-control" placeholder="Password" required>
+              <div class="form-label-group w-100">
+                <input type="password" name="password" class="form-control" placeholder="Password" required autofocus="">
                 <label for="password">Password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="signin">Sign in</button>
               <hr class="my-4">
             </form>
           </div>
@@ -51,6 +79,9 @@ bootstrap/<head>
 		
 	</div>
 </footer>
+
+<script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/jquery-easing/jquery.easing.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 </body>
 	

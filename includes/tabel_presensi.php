@@ -13,12 +13,12 @@
 
 <body id="page-top">
  	<?php 
- 	require '../navbar.php';
+ 	require 'navbar.php';
  	 ?>
 
 <div id="wrapper">
 	<?php 
-	require '../sidebar.php';
+	require 'sidebar.php';
 	 ?> 	 
 
 	<div id="content-wrapper">

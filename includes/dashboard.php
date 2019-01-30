@@ -13,20 +13,23 @@
 
 <body id="page-top">
  	<?php 
- 	require '../navbar.php';
+ 	require 'navbar.php';
  	 ?>
 
 <div id="wrapper">
 	<?php 
-	require '../sidebar.php';
+	require 'sidebar.php';
 	 ?> 	 
 
 	<div id="content-wrapper">
 
 	     <div class="container-fluid">
 		<?php 
-		require '../breadcrumbs.php';
+		require 'breadcrumbs.php';
 		 ?>     	
+		 <h2>Selamat Datang di AyoAbsen</h2>
+		 <p>AyoAbsen merupakan sebuah sistem informasi absensi karyawan.</p>
+		 <a href="logout.php">Logout</a>
 	    </div>
     </div>
 </div>

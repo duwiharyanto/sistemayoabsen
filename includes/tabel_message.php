@@ -13,20 +13,22 @@
 
 <body id="page-top">
  	<?php 
- 	require '../navbar.php';
+ 	require 'navbar.php';
  	 ?>
 
 <div id="wrapper">
 	<?php 
-	require '../sidebar.php';
+	require 'sidebar.php';
 	 ?> 	 
 
 	<div id="content-wrapper">
 
 	   <div class="container-fluid">
-		<?php 
-		require '../breadcrumbs.php';
-		 ?>
+		 <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Tabel Message</a>
+            </li>
+          </ol>
 
 		  <div class="table-responsive">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
