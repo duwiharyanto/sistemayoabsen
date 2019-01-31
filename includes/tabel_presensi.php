@@ -1,3 +1,9 @@
+<?php 
+
+require '../config/config.php';
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,16 +49,23 @@
                 			<th>Opsi</th>
                 		</tr>
                 		<tbody>
+                            <?php 
+                            $no = 1;
+                            $sql = mysqli_query($connection)
+                             ?>
                 			<tr>
-                				
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
+                				<td><?php echo $no++; ?></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <a href='#edit_<?php echo $data['idSlack']; ?>' data-toggle="modal" class="btn btn-info"><i class="fas fa-pencil"></i>Edit</a>
+                                    <a href='delete_presensi.php?idSlack=<?php echo $data['idSlack']; ?>' class="btn btn-danger"><i class="fas fa-trash-o"></i>Delete</a>      
+                                </td>
                 			</tr>
+                            ?>
                 		</tbody>
                 	</thead>
             </table>

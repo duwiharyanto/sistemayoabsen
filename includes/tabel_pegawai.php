@@ -59,8 +59,8 @@ require_once "../config/config.php";
                 				<td><?php echo $data['idSlack']; ?></td>
                 				<td><?php echo $data['namaSlack']; ?></td>
                 				<td>
-                                    <a class="btn btn-info" href="#"><i class="fas fa-pencil"></i>Edit</a>
-                                    <a class="btn btn-danger" href="#"><i class="fas fa-trash-o"></i>Delete</a>              
+                                    <a href='#edit_<?php echo $data['idSlack']; ?>' data-toggle="modal" class="btn btn-info"><i class="fas fa-pencil"></i>Edit</a>
+                                    <a href='delete_pegawai.php?idSlack=<?php echo $data['idSlack']; ?>' class="btn btn-danger"><i class="fas fa-trash-o"></i>Delete</a>              
                                 </td>
                 			</tr>
                             <?php 
