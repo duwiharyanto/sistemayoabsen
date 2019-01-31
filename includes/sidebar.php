@@ -15,6 +15,11 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Tabel Message</span></a>
         </li>
+          <li class="nav-item">
+          <a class="nav-link" href="tabel_pegawai.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Tabel Pegawai</span></a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">
             <i class="fas fa-fw fa-sign-in"></i>

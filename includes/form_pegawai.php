@@ -1,7 +1,3 @@
-<?php 
-
-require "../config/config.php";
- ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +5,7 @@ require "../config/config.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>Tabel Message</title>
+	<title>Tabel Presensi</title>
 	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
 	<link rel="stylesheet" href="../assets/css/sb-admin.css">
@@ -30,9 +26,11 @@ require "../config/config.php";
 	   <div class="container-fluid">
 		 <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Tabel Message</a>
+              <a href="#">Tabel Pegawai</a>
             </li>
           </ol>
+
+          <a class="btn btn-info" href="#"><i class="fa"></i>Create New Data</a>
 
 		  <div class="table-responsive">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
@@ -40,35 +38,22 @@ require "../config/config.php";
                 		<tr>
                             <th>ID</th>
                 			<th>ID Slack</th>
-                			<th>Timestamp</th>
-                			<th>Message</th>
+                			<th>Nama Slack</th>
                 			<th>Opsi</th>
                 		</tr>
                 		<tbody>
-                            <?php
-                            $no = 1; 
-                            $sql = mysqli_query($connection, "SELECT * FROM tb_message");
-                            while ($data = mysqli_fetch_array($sql)) {
-                             ?>
                 			<tr>
-                                <th><?php echo $no++; ?></th>
-                				<th><?php echo $data['idSlack']; ?></th>
-                				<th><?php echo $data['time_stamp']; ?></th>
-                				<th><?php echo $data['message']; ?></th>
-                				<th>
-                                    <a class="btn btn-info" href="#">Edit</a>
-                                    <a class="btn btn-danger" href="#">Delete</a>            
-                                </th>
+                				<th>1</th>
+                				<th>1</th>
+                				<th>1</th>
+                				<th>1</th>
                 			</tr>
-                            <?php 
-                            }
-                             ?>
                 		</tbody>
                 	</thead>
             </table>
           </div>      	
-	   </div>
-    </div>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>

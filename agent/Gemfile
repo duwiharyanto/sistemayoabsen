@@ -1,0 +1,3 @@
+source 'http://rubygems.org'
+
+gem 'celluloid-io', require: ['celluloid/current', 'celluloid/io']
