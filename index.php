@@ -58,7 +58,7 @@ require_once "config/config.php";
              ?>
             <form class="form-signin" action="" method="POST">
               <div class="form-label-group w-100">
-                <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+                <input type="text" name="username" class="form-control" placeholder="Username" required autofill autofocus>
                 <label for="username">Username</label>
               </div>
               <div class="form-label-group w-100">

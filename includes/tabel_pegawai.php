@@ -1,3 +1,7 @@
+<?php 
+
+require_once "../config/config.php";
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,38 +33,10 @@
               <a>Tabel Pegawai</a>
             </li>
           </ol>
+            <?php 
 
-            
-        <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-        Create New Data
-        </button>
-
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Form Pegawai</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                <div class="modal-body">
-                    <form class="" method="POST">
-                        <div class="form-group">
-                            <label for="idSlack">ID Slack:</label><br>
-                            <input type="text" class="form-control" name="idSlack" placeholder="ID Slack" >
-                            <br>
-                            <label for="namaSlack">Nama Slack:</label><br>
-                            <input type="text" class="form-control" name="namaSlack" placeholder="Slack name">
-                        </div>
-                    </form>
-                </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+            require "tambah_pegawai_modal.php";
+             ?>
 		  <div class="table-responsive">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                 	<thead>
@@ -70,18 +46,27 @@
                 			<th>Nama Slack</th>
                 			<th>Opsi</th>
                 		</tr>
+                    </thead>
                 		<tbody>
+                            <?php
+                            $no = 1;
+                            $sql = mysqli_query($connection, "SELECT * FROM tb_pegawai");
+                            while ($data = mysqli_fetch_array($sql)) {
+                            //print_r($data);
+                             ?>
                 			<tr>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>1</th>
-                				<th>
+                                <td><?php echo $no++; ?></td>
+                				<td><?php echo $data['idSlack']; ?></td>
+                				<td><?php echo $data['namaSlack']; ?></td>
+                				<td>
                                     <a class="btn btn-info" href="#"><i class="fas fa-pencil"></i>Edit</a>
                                     <a class="btn btn-danger" href="#"><i class="fas fa-trash-o"></i>Delete</a>              
-                                </th>
+                                </td>
                 			</tr>
+                            <?php 
+                            }
+                             ?>
                 		</tbody>
-                	</thead>
             </table>
           </div>      	
 		</div>

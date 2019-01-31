@@ -51,14 +51,14 @@ require "../config/config.php";
                             while ($data = mysqli_fetch_array($sql)) {
                              ?>
                 			<tr>
-                                <th><?php echo $no++; ?></th>
-                				<th><?php echo $data['idSlack']; ?></th>
-                				<th><?php echo $data['time_stamp']; ?></th>
-                				<th><?php echo $data['message']; ?></th>
-                				<th>
+                                <td><?php echo $no++; ?></td>
+                				<td><?php echo $data['idSlack']; ?></td>
+                				<td><?php echo $data['time_stamp']; ?></td>
+                				<td><?php echo $data['message']; ?></td>
+                				<td>
                                     <a class="btn btn-info" href="#">Edit</a>
                                     <a class="btn btn-danger" href="#">Delete</a>            
-                                </th>
+                                </td>
                 			</tr>
                             <?php 
                             }
