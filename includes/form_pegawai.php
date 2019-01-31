@@ -6,6 +6,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<title>Tabel Presensi</title>
+    <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
 	<link rel="stylesheet" href="../assets/css/sb-admin.css">
@@ -26,11 +30,10 @@
 	   <div class="container-fluid">
 		 <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Tabel Pegawai</a>
+              <a>Tabel Pegawai</a>
             </li>
           </ol>
 
-          <a class="btn btn-info" href="#"><i class="fa"></i>Create New Data</a>
 
 		  <div class="table-responsive">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
@@ -55,12 +58,6 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../assets/js/bootstrap.bundle.min.js"></script>
-
-<script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
 </body>
 	
 </html>
