@@ -14,6 +14,12 @@ require "../config/config.php";
     <link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../assets/css/sb-admin.css">
+    <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
+    <script type="text/javascript" src="../assets/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -35,6 +41,14 @@ require "../config/config.php";
             </li>
           </ol>
 
+          <div class="container-fluid ">
+            <div class="row">
+                <div class="row">
+                <button data-toggle="modal" data-target="#addnew" class="btn btn-primary btn-md">Add New Data</button>
+                </div>
+            </div>
+        </div>
+
           <div class="table-responsive">
                 <table class="table table-bordered text-center" id="myTable" width="100%" cellspacing="0">
                     <thead>
@@ -55,11 +69,11 @@ require "../config/config.php";
                                 <td><?php echo $data['idSlack']; ?></td>
                                 <td><?php echo $data['namaSlack']; ?></td>
                                 <td>
-                                    <a class="btn btn-info" href="#">Edit</a>
-                                    <a class="btn btn-danger" href="delete_pegawai.php?idSlack=<?php echo $data['idSlack'] ?>" onClikc>Delete</a>            
+                                  <a href="update_pegawai.php?idSlack=<?php echo $data['idSlack']; ?>" class="btn btn-info">Edit</a>
+                                  <a onClick="return confirm('Are you sure to delete this?')" href="delete_pegawai.php?idSlack=<<?php echo $data['idSlack']; ?>" class="btn btn-danger">Delete</a>          
                                 </td>
                             </tr>
-                            <?php 
+                            <?php
                             }
                              ?>
                         </tbody>
@@ -70,17 +84,30 @@ require "../config/config.php";
     </div>
 </div>
 
-<script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
-<script type="text/javascript" src="../assets/datatables/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
+<?php 
+include ("tambah_pegawai_modal.php");
+ ?>
 
 <script type="text/javascript">
     $(document).ready( function () {
     $('#myTable').DataTable();
 } );
+
+
+$(window).load(function(){
+    $('#addnew').modal('show');
+});
+
+
+
+//$(window).load(function(){
+   // $('#edit_').modal('show');
+//});       
+
+
+//$(window).load(function(){
+   // $('#delete_').modal('show');
+//});    
 </script>
 </body>
     

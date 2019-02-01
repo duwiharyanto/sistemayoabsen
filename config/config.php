@@ -1,7 +1,12 @@
 <?php 
 
 date_default_timezone_set('Asia/Jakarta');
-session_start();
+
+  if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+
+}
 
 $host ="localhost";
 $user ="root";
