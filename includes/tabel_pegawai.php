@@ -1,82 +1,86 @@
 <?php 
 
-require_once "../config/config.php";
+require "../config/config.php";
  ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>Tabel Presensi</title>
-	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
-	<link rel="stylesheet" href="../assets/css/sb-admin.css">
+    <title>Tabel Message</title>
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">">
+    <link rel="stylesheet" href="../assets/css/sb-admin.css">
 </head>
 
 <body id="page-top">
- 	<?php 
- 	require 'navbar.php';
- 	 ?>
+    <?php 
+    require 'navbar.php';
+     ?>
 
 <div id="wrapper">
-	<?php 
-	require 'sidebar.php';
-	 ?> 	 
+    <?php 
+    require 'sidebar.php';
+     ?>      
 
-	<div id="content-wrapper">
+    <div id="content-wrapper">
 
-	   <div class="container-fluid">
-		 <ol class="breadcrumb">
+       <div class="container-fluid">
+         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a>Tabel Pegawai</a>
+              <a>Tabel Message</a>
             </li>
           </ol>
-            <?php 
-
-            require "tambah_pegawai_modal.php";
-             ?>
-		  <div class="table-responsive">
-                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
-                	<thead>
-                		<tr>
+          <div class="table-responsive">
+                <table class="table table-bordered text-center" id="myTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
                             <th>ID</th>
-                			<th>ID Slack</th>
-                			<th>Nama Slack</th>
-                			<th>Opsi</th>
-                		</tr>
-                    </thead>
-                		<tbody>
+                            <th>ID Slack</th>
+                            <th>Nama Slack</th>
+                            <th>Opsi</th>
+                        </tr>
+                        <tbody>
                             <?php
-                            $no = 1;
+                            $no = 1; 
                             $sql = mysqli_query($connection, "SELECT * FROM tb_pegawai");
                             while ($data = mysqli_fetch_array($sql)) {
-                            //print_r($data);
                              ?>
-                			<tr>
+                            <tr>
                                 <td><?php echo $no++; ?></td>
-                				<td><?php echo $data['idSlack']; ?></td>
-                				<td><?php echo $data['namaSlack']; ?></td>
-                				<td>
-                                    <a href='#edit_<?php echo $data['idSlack']; ?>' data-toggle="modal" class="btn btn-info"><i class="fas fa-pencil"></i>Edit</a>
-                                    <a href='delete_pegawai.php?idSlack=<?php echo $data['idSlack']; ?>' class="btn btn-danger"><i class="fas fa-trash-o"></i>Delete</a>              
+                                <td><?php echo $data['idSlack']; ?></td>
+                                <td><?php echo $data['namaSlack']; ?></td>
+                                <td>
+                                    <a class="btn btn-info" href="#">Edit</a>
+                                    <a class="btn btn-danger" href="delete_pegawai.php?idSlack=<?php echo $data['idSlack'] ?>">Delete</a>            
                                 </td>
-                			</tr>
+                            </tr>
                             <?php 
                             }
                              ?>
-                		</tbody>
+                        </tbody>
+                    </thead>
             </table>
-          </div>      	
-		</div>
-	</div>
+          </div>        
+       </div>
+    </div>
 </div>
 
 <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../assets/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
 <script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
+<script type="text/javascript" src="../assets/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 </body>
-	
+    
 </html>

@@ -12,6 +12,7 @@ require "../config/config.php";
 	<title>Tabel Message</title>
 	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">">
 	<link rel="stylesheet" href="../assets/css/sb-admin.css">
 </head>
 
@@ -35,7 +36,7 @@ require "../config/config.php";
           </ol>
 
 		  <div class="table-responsive">
-                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered text-center" id="myTable" width="100%" cellspacing="0">
                 	<thead>
                 		<tr>
                             <th>ID</th>
@@ -57,7 +58,7 @@ require "../config/config.php";
                 				<td><?php echo $data['message']; ?></td>
                 				<td>
                                     <a class="btn btn-info" href="#">Edit</a>
-                                    <a class="btn btn-danger" href="#">Delete</a>            
+                                    <a class="btn btn-danger" href="delete_message.php?idSlack=<?php echo $data['idSlack'] ?>">Delete</a>            
                                 </td>
                 			</tr>
                             <?php 
@@ -72,10 +73,17 @@ require "../config/config.php";
 </div>
 
 <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../assets/js/bootstrap.bundle.min.js"></script>
-
+<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
 <script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
+<script type="text/javascript" src="../assets/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 </body>
 	
 </html>

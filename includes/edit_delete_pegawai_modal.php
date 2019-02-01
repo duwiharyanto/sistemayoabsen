@@ -1,6 +1,6 @@
 <!-- Edit -- >
 
-<div class="modal fade" id="edit_<?php echo $data['idSlack']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="<?php echo $data['idSlack']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -8,14 +8,15 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                 <div class="modal-body">
-                    <form action="edit_pegawai.php" method="POST">
+                    <form action="update_pegawai.php" method="POST">
+                    	<input type="hidden" class="form-control" name="idSlack" value="<?php echo $data['idSlack'];?>">
                         <div class="form-group">
-                            <label for="idSlack">ID:</label><br>
-                            <input type="text" class="form-control" name="id" value="<?php echo $data['id'] ?>" placeholder="ID Slack" required>
+                            <label for="id">ID:</label><br>
+                            <input type="text" class="form-control" name="id" value="<?php echo $data['id'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="namaSlack">Nama Slack:</label><br>
-                            <input type="text" class="form-control" name="namaSlack" value="<?php echo $data['namaSlack']; ?>" placeholder="Slack name">
+                            <input type="text" class="form-control" name="namaSlack" value="<?php echo $data['namaSlack']; ?>">
                         </div>
                     <div class="modal-footer">
                         <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>

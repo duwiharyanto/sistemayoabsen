@@ -49,12 +49,8 @@ require '../config/config.php';
                 			<th>Opsi</th>
                 		</tr>
                 		<tbody>
-                            <?php 
-                            $no = 1;
-                            $sql = mysqli_query($connection)
-                             ?>
                 			<tr>
-                				<td><?php echo $no++; ?></td>
+                				<td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -65,7 +61,7 @@ require '../config/config.php';
                                     <a href='delete_presensi.php?idSlack=<?php echo $data['idSlack']; ?>' class="btn btn-danger"><i class="fas fa-trash-o"></i>Delete</a>      
                                 </td>
                 			</tr>
-                            ?>
+                            
                 		</tbody>
                 	</thead>
             </table>

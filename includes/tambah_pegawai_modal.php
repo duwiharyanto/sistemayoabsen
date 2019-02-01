@@ -1,8 +1,4 @@
- <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-        Create New Data
-        </button>
-
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="#addnew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
