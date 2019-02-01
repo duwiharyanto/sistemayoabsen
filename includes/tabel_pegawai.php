@@ -12,7 +12,7 @@ require "../config/config.php";
     <title>Tabel Message</title>
     <link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">">
+    <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../assets/css/sb-admin.css">
 </head>
 
@@ -34,6 +34,7 @@ require "../config/config.php";
               <a>Tabel Message</a>
             </li>
           </ol>
+
           <div class="table-responsive">
                 <table class="table table-bordered text-center" id="myTable" width="100%" cellspacing="0">
                     <thead>
@@ -55,7 +56,7 @@ require "../config/config.php";
                                 <td><?php echo $data['namaSlack']; ?></td>
                                 <td>
                                     <a class="btn btn-info" href="#">Edit</a>
-                                    <a class="btn btn-danger" href="delete_pegawai.php?idSlack=<?php echo $data['idSlack'] ?>">Delete</a>            
+                                    <a class="btn btn-danger" href="delete_pegawai.php?idSlack=<?php echo $data['idSlack'] ?>" onClikc>Delete</a>            
                                 </td>
                             </tr>
                             <?php 

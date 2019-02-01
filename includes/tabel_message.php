@@ -12,7 +12,7 @@ require "../config/config.php";
 	<title>Tabel Message</title>
 	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">">
+    <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="../assets/css/sb-admin.css">
 </head>
 

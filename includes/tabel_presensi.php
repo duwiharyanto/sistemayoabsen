@@ -14,6 +14,7 @@ require '../config/config.php';
 	<title>Tabel Presensi</title>
 	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="../assets/css/sb-admin.css">
 </head>
 
@@ -37,7 +38,7 @@ require '../config/config.php';
           </ol>
 
 		  <div class="table-responsive">
-                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered text-center" id="myTable" width="100%" cellspacing="0">
                 	<thead>
                 		<tr>
                 			<th>Tanggal</th>
@@ -72,9 +73,16 @@ require '../config/config.php';
 
 <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../assets/js/bootstrap.bundle.min.js"></script>
-
 <script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
 <script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
+<script type="text/javascript" src="../assets/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 </body>
 	
 </html>
