@@ -20,6 +20,7 @@ require "../config/config.php";
     <script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
     <script type="text/javascript" src="../assets/datatables/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -63,14 +64,15 @@ require "../config/config.php";
                             $no = 1; 
                             $sql = mysqli_query($connection, "SELECT * FROM tb_pegawai");
                             while ($data = mysqli_fetch_array($sql)) {
+                            var_dump($data);
                              ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><?php echo $data['idSlack']; ?></td>
+                                <td><?php echo $data['user']; ?></td>
                                 <td><?php echo $data['namaSlack']; ?></td>
                                 <td>
-                                  <a href="update_pegawai.php?idSlack=<?php echo $data['idSlack']; ?>" class="btn btn-info">Edit</a>
-                                  <a onClick="return confirm('Are you sure to delete this?')" href="delete_pegawai.php?idSlack=<<?php echo $data['idSlack']; ?>" class="btn btn-danger">Delete</a>          
+                                <a  type="button" href="#" data-target='#edit<?php echo $data['idSlack'];  ?>' class='btn btn-info btn-md' id='edit' data-toggle='modal'>Edit</a>
+                                <a type="button" class='btn btn-danger' data-toggle='modal' data-target='#delete' data-href='delete_pegawai.php?idSlack=".$data['idSlack']."'>Delete</a>
                                 </td>
                             </tr>
                             <?php
@@ -98,16 +100,6 @@ $(window).load(function(){
     $('#addnew').modal('show');
 });
 
-
-
-//$(window).load(function(){
-   // $('#edit_').modal('show');
-//});       
-
-
-//$(window).load(function(){
-   // $('#delete_').modal('show');
-//});    
 </script>
 </body>
     

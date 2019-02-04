@@ -10,8 +10,8 @@
                 <div class="modal-body">
                     <form action="tambah_pegawai.php" method="POST">
                         <div class="form-group">
-                            <label for="idSlack">ID Slack:</label><br>
-                            <input type="text" class="form-control" name="idSlack" placeholder="ID Slack" required>
+                            <label for="user">ID Slack:</label><br>
+                            <input type="text" class="form-control" name="user" placeholder="User" required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="namaSlack">Nama Slack:</label><br>

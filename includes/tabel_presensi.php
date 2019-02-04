@@ -43,26 +43,36 @@ require '../config/config.php';
                 		<tr>
                 			<th>Tanggal</th>
                 			<th>ID Slack</th>
-                			<th>Nama Slack</th>
                 			<th>Waktu IN</th>
                 			<th>Waktu OUT</th>
                 			<th>Total Jam</th>
                 			<th>Opsi</th>
                 		</tr>
                 		<tbody>
-                			<tr>
-                				<td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <a href='#edit_<?php echo $data['idSlack']; ?>' data-toggle="modal" class="btn btn-info"><i class="fas fa-pencil"></i>Edit</a>
-                                    <a href='delete_presensi.php?idSlack=<?php echo $data['idSlack']; ?>' class="btn btn-danger"><i class="fas fa-trash-o"></i>Delete</a>      
-                                </td>
-                			</tr>
+                            <?php
+                            $sql = 'SELECT * FROM tb_presensi';
+                            $result = mysqli_query($connection, $sql) or die(mysqli_connect_error());
+                            if(mysqli_num_rows($result) > 0){
+                              while($data = mysqli_fetch_assoc($result)){
+                                print_r($data);
+                                echo "<tr>
+                                <td>".$data['tanggal']."</td>;
+                                <td>".$data['idSlack']."</td>;
+                                <td>".$data['waktu_IN']."</td>;
+                                <td>".$data['waktu_OUT']."</td>;
+                                <td>".$data['totalJam']."</td>;
+                                <td><a class='btn btn-info' href='#'>Edit;
+                                <a class='btn btn-danger' href='#'>Delete </td>;
+                            </tr>";
+                        }
+                      }  
+                         else {
+                        echo "0 results";
+                        }
                             
+                     mysqli_close($connection);
+                     ?>    
+
                 		</tbody>
                 	</thead>
             </table>

@@ -8,6 +8,4 @@ $sql = mysqli_query($connection, "DELETE FROM tb_pegawai WHERE idSlack = '$idSla
 
 
 
-
-
  ?>

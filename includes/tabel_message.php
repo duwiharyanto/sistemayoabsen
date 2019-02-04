@@ -49,14 +49,16 @@ require "../config/config.php";
                             <?php
                             $no = 1; 
                             $sql = mysqli_query($connection, "SELECT * FROM tb_message");
-                            while ($data = mysqli_fetch_array($sql)) {
+                            while ($data = mysqli_fetch_array($sql)) {   
+                            //    var_dump($data);
                              ?>
-                			<tr>
-                                <td><?php echo $no++; ?></td>
+
+                		      <tr>
+                              <td><?php echo $no++; ?></td>
                 				<td><?php echo $data['idSlack']; ?></td>
-                				<td><?php echo $data['time_stamp']; ?></td>
+                				<td><?php echo $data['timestamp']; ?></td>
                 				<td><?php echo $data['message']; ?></td>
-                				<td>
+                				<td> 
                                     <a class="btn btn-info" href="#">Edit</a>
                                     <a class="btn btn-danger" href="delete_message.php?idSlack=<?php echo $data['idSlack'] ?>">Delete</a>            
                                 </td>

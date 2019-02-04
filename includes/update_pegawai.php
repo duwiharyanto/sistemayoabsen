@@ -40,6 +40,7 @@ require"../config/config.php";
               <a>Edit Data Pegawai</a>
             </li>
           </ol>
+     </div>     
 
 	<?php 
 
@@ -56,6 +57,7 @@ if (isset($_POST['edit'])) {
 
 	 ?>
 
+<div class="container">
 <?php 
 $idSlack = $_GET['idSlack'];
 $sql = mysqli_query($connection, "SELECT * FROM tb_pegawai WHERE idSlack = '$idSlack'");
@@ -74,7 +76,7 @@ while($data = mysqli_fetch_assoc($sql)){
                  <input type="text" class="form-control" name="namaSlack" value="<?php echo $data['namaSlack']; ?>">
             </div>
             <div class="modal-footer">
-                  <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" name="close" class="btn btn-default" href="tabel_pegawai.php">Close</button>
                   <button type="submit" name="edit" class="btn btn-primary">Update</button>
              </div>
        </form>
