@@ -14,12 +14,7 @@ require "../config/config.php";
     <link rel="stylesheet" type="text/css" href="../assets/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/datatables/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../assets/css/sb-admin.css">
-    <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
-    <script type="text/javascript" src="../assets/datatables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
+  
 
 </head>
 
@@ -71,9 +66,9 @@ require "../config/config.php";
                                 <td><?php echo $data['user']; ?></td>
                                 <td><?php echo $data['namaSlack']; ?></td>
                                 <td>
-                               <button type='button' class='btn btn-default btn-small' data-toggle='modal' data-target="#myModal<?php echo $data['idSlack']; ?>">Edit</button>
+                               <button type='button' class='btn btn-info' data-toggle='modal' data-target="#myModal<?php echo $data['id']; ?>">Edit</button>
                                 
-                                <a type="button" class='btn btn-danger' data-toggle='modal' data-target='#delete' data-href='delete_pegawai.php?idSlack=".$data['idSlack']."'>Delete</a>
+                                <a class="btn btn-danger" href="#" data-href="delete_pegawai.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>
                                 </td>
                             </tr>
                             <?php
@@ -147,12 +142,31 @@ require "../config/config.php";
 </div>
 
 <!-- Modal Delete Pegawai -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delete Confirmation</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete this data?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
 
+<script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/jquery-easing/jquery.easing.min.js"></script>
+<script type="text/javascript" src="../assets/js/sb-admin.min.js"></script>
+<script type="text/javascript" src="../assets/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
 
-
-<?php 
-include 'tambah_pegawai_modal.php';
- ?>
 
 <script type="text/javascript">
     $(document).ready( function () {
@@ -160,16 +174,13 @@ include 'tambah_pegawai_modal.php';
 } );
 
 
-$(window).load(function(){
-    $('#addnew').modal('show');
+$('#confirm-delete').on('show.bs.modal', function(e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 });
 
-$(function(){
-    $('#myModal').modal('show');
-
-
-})
-
+$('#addnew').on('show.bs.modal', function(e) {
+    $(this).find('.save').attr('href', $(e.relatedTarget).data('href'));
+});
 </script>
 </body>
     
