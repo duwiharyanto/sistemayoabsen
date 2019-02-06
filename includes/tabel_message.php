@@ -59,7 +59,7 @@ require "../config/config.php";
                 				<td><?php echo $data['timestamp']; ?></td>
                 				<td><?php echo $data['message']; ?></td>
                 				<td> 
-                                    <a class="btn" href="#">Edit</a>
+                                    <a class="btn btn-info" href="#">Edit</a>
                                     <a class="btn btn-danger" href="#" data-href="delete_message.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>         
                                 </td>
                 			</tr>

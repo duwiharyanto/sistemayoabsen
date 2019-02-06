@@ -77,7 +77,6 @@ require "../config/config.php";
                                 </td>
                             </tr>
                             <?php
-                            include 'edit_delete_pegawai_modal.php';
                             }
                              ?>
                         </tbody>

@@ -6,6 +6,8 @@ $idSlack = $_GET['idSlack'];
 
 $sql = mysqli_query($connection, "DELETE FROM tb_pegawai WHERE idSlack = '$idSlack'");
 
-
+if ($sql) {
+	echo "<script>window.location='tabel_pegawai.php'</script>";
+}
 
  ?>
