@@ -1,5 +1,6 @@
 <!-- Edit -- >
-<div class="modal fade" id="edit<?php echo $data['idSlack']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_<?php echo $data['idSlack']; ?>">Edit</button>    
+<div class="modal fade" id="edit_<?php echo $data['idSlack']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">

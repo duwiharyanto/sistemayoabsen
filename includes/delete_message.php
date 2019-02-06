@@ -2,12 +2,17 @@
 
 require "../config/config.php";
 
-$idSlack = $_GET['idSlack'];
+$id = $_GET['id'];
 
-$sql = mysqli_query($connection, "DELETE FROM tb_message WHERE idSlack = '$idSlack'");
+$sql = mysqli_query($connection, "DELETE FROM tb_message WHERE id = '$id'");
 
 if ($sql) {
-	echo "<script></script>"
+	echo "Data berhasil dihapus";
+	header("location:tabel_message.php");
+} else {
+	"Data gagal dihapus" . "<br>" . mysqli_connect_errno();
 }
+
+
 
  ?>

@@ -17,7 +17,7 @@ if (mysqli_num_rows($sql) > 0) {
 	echo " Halo";
 } else {
    echo "0 results";
-   $query = mysqli_query($connection, "INSERT INTO tb_presensi (id, tanggal, idSlack, waktu_IN, waktu_OUT, totalJam) VALUES ('"."', '".$value['timestamp']."', '".$value['slack_id']."', '".$value['timestamp']."', '".$value['timestamp']."', '"."')");	
+   $query = mysqli_query($connection, "INSERT INTO tb_presensi (id, tanggal, idSlack, waktu_IN, waktu_OUT, totalJam) VALUES ('"."', '".$value['timestamp']."', '".$value['slack_id']."', '".$value['timestamp']."', '"."', '"."')");	
 
  }
 

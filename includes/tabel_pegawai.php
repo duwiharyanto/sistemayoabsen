@@ -44,7 +44,7 @@ require "../config/config.php";
 
           <div class="container-fluid ">
             <div class="row">
-                <div class="row">
+                <div class="row offset-md-10">
                 <button data-toggle="modal" data-target="#addnew" class="btn btn-primary btn-md">Add New Data</button>
                 </div>
             </div>
@@ -64,18 +64,20 @@ require "../config/config.php";
                             $no = 1; 
                             $sql = mysqli_query($connection, "SELECT * FROM tb_pegawai");
                             while ($data = mysqli_fetch_array($sql)) {
-                            var_dump($data);
+                            //var_dump($data);
                              ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $data['user']; ?></td>
                                 <td><?php echo $data['namaSlack']; ?></td>
                                 <td>
-                                <a  type="button" href="#" data-target='#edit<?php echo $data['idSlack'];  ?>' class='btn btn-info btn-md' id='edit' data-toggle='modal'>Edit</a>
+                               <button type='button' class='btn btn-default btn-small' data-toggle='modal' data-target="#myModal<?php echo $data['idSlack']; ?>">Edit</button>
+                                
                                 <a type="button" class='btn btn-danger' data-toggle='modal' data-target='#delete' data-href='delete_pegawai.php?idSlack=".$data['idSlack']."'>Delete</a>
                                 </td>
                             </tr>
                             <?php
+                            include 'edit_delete_pegawai_modal.php';
                             }
                              ?>
                         </tbody>
@@ -86,8 +88,71 @@ require "../config/config.php";
     </div>
 </div>
 
+<!-- Tambah Data Pegawai -->
+ <div class="modal fade" id="addnew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Form Pegawai</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                <div class="modal-body">
+                    <form action="tambah_pegawai.php" method="POST">
+                        <div class="form-group">
+                            <label for="user">ID Slack:</label><br>
+                            <input type="text" class="form-control" name="user" placeholder="User" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="namaSlack">Nama Slack:</label><br>
+                            <input type="text" class="form-control" name="namaSlack" placeholder="Slack name">
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+     </div>
+</div>
+
+<!-- Modal Edit Pegawai -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Edit Pegawai</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                <div class="modal-body">
+                    <form action="update_pegawai.php" method="POST">
+
+                        <input type="hidden" class="form-control" name="idSlack" value="<?php echo $data['idSlack'];?>">
+
+                        <div class="form-group">
+                            <label for="id">ID:</label><br>
+                            <input type="text" class="form-control" name="id" value="<?php echo $data['id'] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="namaSlack">Nama Slack:</label><br>
+                            <input type="text" class="form-control" name="namaSlack" value="<?php echo $data['namaSlack']; ?>">
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" name="edit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+     </div>
+</div>
+
+<!-- Modal Delete Pegawai -->
+
+
+
 <?php 
-include ("tambah_pegawai_modal.php");
+include 'tambah_pegawai_modal.php';
  ?>
 
 <script type="text/javascript">
@@ -99,6 +164,12 @@ include ("tambah_pegawai_modal.php");
 $(window).load(function(){
     $('#addnew').modal('show');
 });
+
+$(function(){
+    $('#myModal').modal('show');
+
+
+})
 
 </script>
 </body>

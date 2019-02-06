@@ -60,7 +60,7 @@ require "../config/config.php";
                 				<td><?php echo $data['message']; ?></td>
                 				<td> 
                                     <a class="btn btn-info" href="#">Edit</a>
-                                    <a class="btn btn-danger" href="delete_message.php?idSlack=<?php echo $data['idSlack'] ?>">Delete</a>            
+                                    <a class="btn btn-danger" href="delete_message.php?id=<?php echo $data['id'] ?>">Delete</a>            
                                 </td>
                 			</tr>
                             <?php 
