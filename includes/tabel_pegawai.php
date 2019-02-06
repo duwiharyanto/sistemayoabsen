@@ -66,9 +66,9 @@ require "../config/config.php";
                                 <td><?php echo $data['user']; ?></td>
                                 <td><?php echo $data['namaSlack']; ?></td>
                                 <td>
-                               <button type='button' class='btn btn-info' data-toggle='modal' data-target="#myModal<?php echo $data['id']; ?>">Edit</button>
-                                
-                                <a class="btn btn-danger" href="#" data-href="delete_pegawai.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>
+                               <a class="btn btn-info" href="#" data-href="update_pegawai.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#edit">Edit</a>
+
+                                <a class="btn btn-danger" href="#" data-href="delete_pegawai.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#delete">Delete</a>
                                 </td>
                             </tr>
                             <?php
@@ -111,7 +111,7 @@ require "../config/config.php";
 </div>
 
 <!-- Modal Edit Pegawai -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="edit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -121,11 +121,11 @@ require "../config/config.php";
                 <div class="modal-body">
                     <form action="update_pegawai.php" method="POST">
 
-                        <input type="hidden" class="form-control" name="idSlack" value="<?php echo $data['idSlack'];?>">
+                        <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $data['id'];?>">
 
                         <div class="form-group">
-                            <label for="id">ID:</label><br>
-                            <input type="text" class="form-control" name="id" value="<?php echo $data['id'] ?>">
+                            <label for="user">ID Slack:</label><br>
+                            <input type="text" class="form-control" name="user" value="<?php echo $data['user'] ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="namaSlack">Nama Slack:</label><br>
@@ -133,7 +133,7 @@ require "../config/config.php";
                         </div>
                     <div class="modal-footer">
                         <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" name="edit" class="btn btn-primary">Update</button>
+                        <button type="submit" name="update" class="btn btn-primary">Update</button>
                     </div>
                 </form>
             </div>
@@ -142,7 +142,7 @@ require "../config/config.php";
 </div>
 
 <!-- Modal Delete Pegawai -->
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -173,13 +173,16 @@ require "../config/config.php";
     $('#myTable').DataTable();
 } );
 
-
-$('#confirm-delete').on('show.bs.modal', function(e) {
-    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-});
-
 $('#addnew').on('show.bs.modal', function(e) {
     $(this).find('.save').attr('href', $(e.relatedTarget).data('href'));
+});
+
+$('#edit').on('show.bs.modal', function(e) {
+    $(this).find('.update').attr('href', $(e.relatedTarget).data('href'));
+});
+
+$('#delete').on('show.bs.modal', function(e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 });
 </script>
 </body>

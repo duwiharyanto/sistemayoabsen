@@ -59,8 +59,8 @@ require "../config/config.php";
                 				<td><?php echo $data['timestamp']; ?></td>
                 				<td><?php echo $data['message']; ?></td>
                 				<td> 
-                                    <a class="btn" href="#">Edit</a>
-                                    <a class="btn btn-danger" href="#" data-href="delete_message.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>         
+                                    <a class="btn btn-info" href="#">Edit</a>
+                                    <a class="btn btn-danger" href="#" data-href="delete_message.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#delete">Delete</a>         
                                 </td>
                 			</tr>
                             <?php 
@@ -76,7 +76,7 @@ require "../config/config.php";
 
 <!-- Delete Message Modal -->
 
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -106,7 +106,7 @@ require "../config/config.php";
     $('#myTable').DataTable();
 });
 
-$('#confirm-delete').on('show.bs.modal', function(e) {
+$('#delete').on('show.bs.modal', function(e) {
     $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 });
 

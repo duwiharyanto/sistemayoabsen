@@ -3,21 +3,22 @@
 require"../config/config.php";
 
 
-	$user = $_GET['user'];
-  $id = $_GET['id'];
-  $namaSlack = $_GET['namaSlack'];
+$id = $_GET['id'];
 
-	//$id = mysqli_real_escape_string($connection, $_POST['id']);
-	//$namaSlack = mysqli_real_escape_string($connection, $_POST['namaSlack']);
+if (isset('update')) {
 
-	$sql = mysqli_query($connection, "UPDATE tb_pegawai SET id = '$id', namaSlack = '$namaSlack' WHERE user = '$user'");
+$user = mysqli_real_escape_string($connection, $_POST['user']);
+$namaSlack = mysqli_real_escape_string($connection, $_POST['namaSlack']);
+
+$sql = mysqli_query($connection, "UPDATE tb_pegawai SET user = '$user', namaSlack = '$namaSlack' WHERE id = '$id'");	
+}
 
   if($sql){
-    echo "Data berhasil diupdate";
-	header("location: tabel_pegawai.php");
-  } else {
-    echo "Data gagal diupdate" . $sql . "<br>" . $mysqli_connect_error();
-  }
+	echo "<script>window.location='tabel_pegawai.php'</script>";
+} else {
+	echo "<script>window.alert('Data gagal diupdate')</script>";
+	echo "<script>window.location='tabel_pegawai.php'</script>";
+}
 
 
 	 ?>

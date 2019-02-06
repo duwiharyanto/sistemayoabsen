@@ -61,7 +61,7 @@ require '../config/config.php';
                                 <td>".$data['waktu_IN']."</td>;
                                 <td>".$data['waktu_OUT']."</td>;
                                 <td>".$data['totalJam']."</td>;
-                                <td><a class='btn btn-info' href='#'>Edit
+                                <td><a class='btn btn-info' href='#'>Edit <br>
                                 <a class='btn btn-danger' href='#'>Delete </td>;
                             </tr>";
                         }

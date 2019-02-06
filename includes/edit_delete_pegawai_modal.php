@@ -30,23 +30,20 @@
      </div>
 </div>
 
-
-<div class="modal fade" id="delete<?php echo $data['idSlack']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h2>Delete Confirmation</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <center><h4 class="modal-title" id="myModalLabel">Delete Pegawai</h4></center>
             </div>
-            <div class="modal-body">	
-            	<p class="text-center">Are you sure you want to Delete</p>
-				<h2 class="text-center"><?php echo $data['idSlack'].' '.$data['namaSlack']; ?></h2>
-			</div>
+            <div class="modal-body">
+                Do you want to delete this data?
+            </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                <a href="delete_pegawai.php?idSlack=<?php echo $data['idSlack']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Yes</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Delete</a>
             </div>
-
         </div>
     </div>
 </div>
