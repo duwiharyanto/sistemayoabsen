@@ -54,6 +54,7 @@ require "../config/config.php";
                             <th>Nama Slack</th>
                             <th>Opsi</th>
                         </tr>
+                    </thead>
                         <tbody>
                             <?php
                             $no = 1; 
@@ -66,16 +67,19 @@ require "../config/config.php";
                                 <td><?php echo $data['user']; ?></td>
                                 <td><?php echo $data['namaSlack']; ?></td>
                                 <td>
-                               <a class="btn btn-info" href="#" data-href="update_pegawai.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#edit">Edit</a>
-
-                                <a class="btn btn-danger" href="#" data-href="delete_pegawai.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#delete">Delete</a>
+                                 <button type="button" class="btn btn-primary edit_button" 
+                                    data-toggle="modal" data-target="#myModal"
+                                    data-id = "<?php echo $data['id']; ?>"
+                                    data-user="<?php echo $data['user']; ?>"
+                                    data-namaslack = "<?php echo $data['namaSlack']; ?>"> Edit </button>
+                                    
+                                <a class="btn btn-danger" href="#" data-href="delete_pegawai.php?user=<?php echo $data['user']; ?>" data-toggle="modal" data-target="#delete">Delete</a>
                                 </td>
                             </tr>
                             <?php
                             }
                              ?>
                         </tbody>
-                    </thead>
             </table>
           </div>        
        </div>
@@ -83,6 +87,7 @@ require "../config/config.php";
 </div>
 
 <!-- Tambah Data Pegawai -->
+
  <div class="modal fade" id="addnew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -102,7 +107,7 @@ require "../config/config.php";
                         </div>
                     <div class="modal-footer">
                         <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" name="save" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -111,35 +116,39 @@ require "../config/config.php";
 </div>
 
 <!-- Modal Edit Pegawai -->
-<div class="modal fade" id="edit<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Edit Pegawai</h4>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+         <div class="modal-content">
+                 <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Edit Pegawai</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                <div class="modal-body">
-                    <form action="update_pegawai.php" method="POST">
-
-                        <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $data['id'];?>">
-
-                        <div class="form-group">
-                            <label for="user">ID Slack:</label><br>
-                            <input type="text" class="form-control" name="user" value="<?php echo $data['user'] ?>" readonly>
+                 </div>
+            <div class="modal-body">
+                <div class="fetched-data">
+         <form role="form" action="update_pegawai.php" method="POST">
+            <div class="form-group">
+                    <label for="no">No:</label><br>
+                <input type="text" class="form-control id" name="id" value="<?php echo $data['id'];  ?>">
+            </div>
+            <div class="form-group">
+                     <label for="user">ID Slack:</label><br>
+                        <input type="text" class="form-control user" name="user" id="user" value="<?php echo $data['user'] ?>" readonly>
+            </div>
+            <div class="form-group">
+                    <label for="namaSlack">Nama Slack:</label><br>
+                        <input type="text" class="form-control namaSlack" name="namaSlack" id="namaSlack" value="<?php echo $data['namaSlack']; ?>">
                         </div>
-                        <div class="form-group">
-                            <label for="namaSlack">Nama Slack:</label><br>
-                            <input type="text" class="form-control" name="namaSlack" value="<?php echo $data['namaSlack']; ?>">
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" name="update" class="btn btn-primary">Update</button>
+            <div class="modal-footer">
+                     <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
+                     <button type="submit" name="update" class="btn btn-primary">Update</button>
                     </div>
                 </form>
             </div>
+         </div>   
         </div>
      </div>
-</div>
+</div> 
+-->
 
 <!-- Modal Delete Pegawai -->
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -154,7 +163,7 @@ require "../config/config.php";
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <a class="btn btn-danger delete">Delete</a>
             </div>
         </div>
     </div>
@@ -177,12 +186,18 @@ $('#addnew').on('show.bs.modal', function(e) {
     $(this).find('.save').attr('href', $(e.relatedTarget).data('href'));
 });
 
-$('#edit').on('show.bs.modal', function(e) {
-    $(this).find('.update').attr('href', $(e.relatedTarget).data('href'));
-});
+$(document).on("click", '.edit_button', function(e) { 
+    var id = $(this).data('id'); 
+    var user = $(this).data('user'); 
+    var namaSlack = $(this).data('namaSlack'); 
+    $(".id").val(id); 
+    $(".user").val(user); 
+    $(".namaSlack").val(namaSlack);
+}); 
+
 
 $('#delete').on('show.bs.modal', function(e) {
-    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+    $(this).find('.delete').attr('href', $(e.relatedTarget).data('href'));
 });
 </script>
 </body>

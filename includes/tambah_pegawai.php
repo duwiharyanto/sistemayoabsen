@@ -9,14 +9,4 @@ if (isset($_POST['submit'])) {
 
     $sql = mysqli_query($connection, "INSERT INTO tb_pegawai (id, user, namaSlack) VALUES ('', '$user', '$namaSlack')");  
 }
-
-
-if ($sql) {
-	header("location:tabel_pegawai.php");
-	} else {
-	echo "<script>alert('Data gagal dimasukkan/Data Duplikat')</script>";
-	echo "<script>window.location='tabel_pegawai.php'</script>";
-
-}
-
  ?>
