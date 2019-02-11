@@ -65,14 +65,17 @@ require "../config/config.php";
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $data['user']; ?></td>
-                                <td><?php echo $data['namaSlack']; ?></td>
+                                <td><?php echo $data['name']; ?></td>
                                 <td>
                                  <button type="button" class="btn btn-info edit_button" 
                                     data-toggle="modal" data-target="#edit"
-                                    data-user="<?php echo $data['user']; ?>"
-                                    data-slack = "<?php echo $data['namaSlack']; ?>"> Edit </button>
+                                    data-user= "<?php echo $data['user']; ?>"
+                                    data-name = "<?php echo $data['name']; ?>"> Edit </button>
                                     
-                                <button type="button" class="btn btn-danger" href="#" data-href="delete_pegawai.php?user=<?php echo $data['user']; ?>" data-toggle="modal" data-target="#delete">Delete</button>
+                                <button type="button" class="btn btn-danger" href="#" 
+                                data-href="delete_pegawai.php?user=<?php echo $data['user']; ?>" 
+                                data-toggle="modal" 
+                                data-target="#delete">Delete</button>
                                 </td>
                             </tr>
                             <?php
@@ -101,8 +104,8 @@ require "../config/config.php";
                             <input type="text" class="form-control" name="user" placeholder="User" required autofocus>
                         </div>
                         <div class="form-group">
-                            <label for="namaSlack">Nama Slack:</label><br>
-                            <input type="text" class="form-control" name="namaSlack" placeholder="Slack name">
+                            <label for="name">Nama Slack:</label><br>
+                            <input type="text" class="form-control" name="name" placeholder="Slack name">
                         </div>
                     <div class="modal-footer">
                         <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -130,8 +133,8 @@ require "../config/config.php";
                         <input type="text" class="form-control user" name="user" id="user" value="<?php echo $data['user'] ?>" readonly>
             </div>
             <div class="form-group">
-                    <label for="namaSlack">Nama Slack:</label><br>
-                        <input type="text" class="form-control slack" name="slack" id="slack" value="<?php echo $data['namaSlack']; ?>">
+                    <label for="name">Nama Slack:</label><br>
+                        <input type="text" class="form-control name" name="name" id="name" value="<?php echo $data['name']; ?>">
                         </div>
             <div class="modal-footer">
                      <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -183,9 +186,9 @@ $('#addnew').on('show.bs.modal', function(e) {
 
 $(document).on("click", '.edit_button', function(e) {  
     var user = $(this).data('user'); 
-    var slack = $(this).data('slack'); 
+    var name = $(this).data('name'); 
     $(".user").val(user); 
-    $(".slack").val(slack);
+    $(".name").val(name);
 }); 
 
 

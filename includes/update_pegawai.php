@@ -5,15 +5,10 @@ require"../config/config.php";
 
 if (isset($_POST['update'])) {	
 $user = mysqli_real_escape_string($connection,$_POST['user']);
-$namaSlack = mysqli_real_escape_string($connection, $_POST['namaSlack']);
+$name = mysqli_real_escape_string($connection, $_POST['name']);
 
-//if (isset('update')) {
 
-//$user = mysqli_real_escape_string($connection, $_POST['user']);
-//$namaSlack = mysqli_real_escape_string($connection, $_POST['namaSlack']);
-
-$sql = mysqli_query($connection, "UPDATE tb_pegawai SET namaSlack = '$namaSlack' WHERE user = '$user'");	
-//}
+$sql = mysqli_query($connection, "UPDATE tb_pegawai SET name = '$name' WHERE user = '$user'");	
 
   if($sql){
 	echo "<script>window.location='tabel_pegawai.php'</script>";
