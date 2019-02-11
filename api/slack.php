@@ -6,7 +6,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 //print_r($data['user']['timestamp']);
 // Tabel Message
 foreach ((array)$data as $value) {
-	$sql = mysqli_query($connection, "INSERT INTO tb_message (id, idSlack, timestamp, message) values ('"."','".$value['slack_id']."','".$value['timestamp']."','".$value['message']."')");
+	$sql = mysqli_query($connection, "INSERT INTO tb_message (id, user, timestamp, message) values ('"."','".$value['slack_id']."','".$value['timestamp']."','".$value['message']."')");
 	}
 
 
