@@ -127,10 +127,6 @@ require "../config/config.php";
                 <div class="fetched-data">
          <form role="form" action="update_pegawai.php" method="POST">
             <div class="form-group">
-                    <label for="no">No:</label><br>
-                <input type="text" class="form-control id" name="id" value="<?php echo $data['id'];  ?>">
-            </div>
-            <div class="form-group">
                      <label for="user">ID Slack:</label><br>
                         <input type="text" class="form-control user" name="user" id="user" value="<?php echo $data['user'] ?>" readonly>
             </div>
@@ -186,11 +182,9 @@ $('#addnew').on('show.bs.modal', function(e) {
     $(this).find('.save').attr('href', $(e.relatedTarget).data('href'));
 });
 
-$(document).on("click", '.edit_button', function(e) { 
-    var id = $(this).data('id'); 
+$(document).on("click", '.edit_button', function(e) {  
     var user = $(this).data('user'); 
     var namaSlack = $(this).data('namaSlack'); 
-    $(".id").val(id); 
     $(".user").val(user); 
     $(".namaSlack").val(namaSlack);
 }); 
