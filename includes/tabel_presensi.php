@@ -48,37 +48,54 @@ require '../config/config.php';
                 			<th>Total Jam</th>
                 			<th>Opsi</th>
                 		</tr>
+                    </thead>
                 		<tbody>
                             <?php
                             $sql = 'SELECT * FROM tb_presensi';
                             $result = mysqli_query($connection, $sql) or die(mysqli_connect_error());
                             if(mysqli_num_rows($result) > 0){
                               while($data = mysqli_fetch_assoc($result)){
-                                print_r($data);
-                                echo "<tr>
-                                <td>".$data['tanggal']."</td>;
-                                <td>".$data['idSlack']."</td>;
-                                <td>".$data['waktu_IN']."</td>;
-                                <td>".$data['waktu_OUT']."</td>;
-                                <td>".$data['totalJam']."</td>;
-                                <td><a class='btn btn-info' href='#'>Edit <br>
-                                <a class='btn btn-danger' href='#'>Delete </td>;
-                            </tr>";
+                                ?>
+                                <tr>
+                                <td><?php echo $data['tanggal']; ?></td>
+                                <td><?php echo $data['user']; ?></td>
+                                <td><?php echo $data['waktu_IN']; ?></td>
+                                <td><?php echo $data['waktu_OUT']; ?></td>
+                                <td><?php echo $data['totalJam']; ?></td>
+                                <td><button type="button" class="btn btn-info" href="#" data-toggle="modal" data-target="#edit">Edit</button>
+                                <button type="button" class='btn btn-danger' href='#' data-toggle="modal" data-target="#delete">Delete</button></td>;
+                                </tr>;
+                            <?php  
                         }
-                      }  
-                         else {
+                      } else {
                         echo "0 results";
-                        }
-                            
-                     mysqli_close($connection);
-                     ?>    
-
-                		</tbody>
-                	</thead>
+                    }
+                        ?>
+                	</tbody>
             </table>
           </div>      	
 		</div>
 	</div>
+</div>
+
+<!-- Delete Presensi Modal -->
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delete Confirmation</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            </div>
+            <div class="modal-body">
+               <p class="text-center"> Do you want to delete this data? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger delete_button">Delete</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript" src="../assets/jquery/jquery.min.js"></script>
@@ -91,8 +108,11 @@ require '../config/config.php';
 <script type="text/javascript">
     $(document).ready( function () {
     $('#myTable').DataTable();
-} );
+});
+
+$('#delete').on('show.bs.modal', function(e) {
+    $(this).find('.delete_button').attr('href', $(e.relatedTarget).data('href'));
+});    
 </script>
 </body>
-	
 </html>

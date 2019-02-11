@@ -72,7 +72,7 @@ require "../config/config.php";
                                     data-user= "<?php echo $data['user']; ?>"
                                     data-name = "<?php echo $data['name']; ?>"> Edit </button>
                                     
-                                <button type="button" class="btn btn-danger" href="#" 
+                                <button type="button" class="btn btn-danger" 
                                 data-href="delete_pegawai.php?user=<?php echo $data['user']; ?>" 
                                 data-toggle="modal" 
                                 data-target="#delete">Delete</button>
@@ -157,7 +157,8 @@ require "../config/config.php";
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                Do you want to delete this data?
+               <p class="text-center"> Do you want to delete this user? </p>
+              
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

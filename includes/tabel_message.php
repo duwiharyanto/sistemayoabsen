@@ -60,7 +60,7 @@ require "../config/config.php";
                 				<td><?php echo $data['message']; ?></td>
                 				<td>  
 
-                                    <button type="button" class="btn btn-danger" href="#" data-href="delete_message.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#delete">Delete</button>         
+                                    <button type="button" class="btn btn-danger" data-href="delete_message.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#delete">Delete</button>         
                                 </td>
                 			</tr>
                             <?php 
@@ -84,7 +84,7 @@ require "../config/config.php";
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
             </div>
             <div class="modal-body">
-                Do you want to delete this data?
+               <p class="text-center"> Do you want to delete this data? </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

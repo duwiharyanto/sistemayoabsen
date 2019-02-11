@@ -1,7 +1,7 @@
-<?php 
 
-require_once "config/config.php";
- ?>
+<?php 
+require 'config/config.php';
+?>
 
 <!DOCTYPE html>
 <html>
@@ -75,8 +75,8 @@ require_once "config/config.php";
 </div>		
 <br>
 <footer class="page-footer font-small black">
-	<div class="footer-copyright text-center py-3"> Copyright 2019 @ PT. Arisoft Riset Informatika
-		
+	<div class="footer-copyright text-center py-3"> 
+    Copyright 2019 @ PT. Arisoft Riset Informatika
 	</div>
 </footer>
 
@@ -91,5 +91,4 @@ $(document).ready(function() {
 });
 </script>
 </body>
-	
 </html>
