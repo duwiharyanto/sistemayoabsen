@@ -2,9 +2,9 @@
 
 require "../config/config.php";
 
-$id = $_GET['id'];
+$user = $_GET['user'];
 
-$sql = mysqli_query($connection, "DELETE FROM tb_pegawai WHERE id = '$id'");
+$sql = mysqli_query($connection, "DELETE FROM tb_pegawai WHERE user = '$user'");
 
 if ($sql) {
 	echo "<script>window.alert('Data berhasil dihapus')</script>";

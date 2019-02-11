@@ -33,7 +33,7 @@ require "../config/config.php";
        <div class="container-fluid">
          <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a>Tabel Message</a>
+              <a>Tabel Pegawai</a>
             </li>
           </ol>
 
@@ -67,13 +67,12 @@ require "../config/config.php";
                                 <td><?php echo $data['user']; ?></td>
                                 <td><?php echo $data['namaSlack']; ?></td>
                                 <td>
-                                 <button type="button" class="btn btn-primary edit_button" 
-                                    data-toggle="modal" data-target="#myModal"
-                                    data-id = "<?php echo $data['id']; ?>"
+                                 <button type="button" class="btn btn-info edit_button" 
+                                    data-toggle="modal" data-target="#edit"
                                     data-user="<?php echo $data['user']; ?>"
-                                    data-namaslack = "<?php echo $data['namaSlack']; ?>"> Edit </button>
+                                    data-slack = "<?php echo $data['namaSlack']; ?>"> Edit </button>
                                     
-                                <a class="btn btn-danger" href="#" data-href="delete_pegawai.php?user=<?php echo $data['user']; ?>" data-toggle="modal" data-target="#delete">Delete</a>
+                                <button type="button" class="btn btn-danger" href="#" data-href="delete_pegawai.php?user=<?php echo $data['user']; ?>" data-toggle="modal" data-target="#delete">Delete</button>
                                 </td>
                             </tr>
                             <?php
@@ -107,7 +106,7 @@ require "../config/config.php";
                         </div>
                     <div class="modal-footer">
                         <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" name="save" class="btn btn-primary">Save changes</button>
+                        <button type="submit" name="save" class="btn btn-success">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -116,7 +115,7 @@ require "../config/config.php";
 </div>
 
 <!-- Modal Edit Pegawai -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
          <div class="modal-content">
                  <div class="modal-header">
@@ -132,11 +131,11 @@ require "../config/config.php";
             </div>
             <div class="form-group">
                     <label for="namaSlack">Nama Slack:</label><br>
-                        <input type="text" class="form-control namaSlack" name="namaSlack" id="namaSlack" value="<?php echo $data['namaSlack']; ?>">
+                        <input type="text" class="form-control slack" name="slack" id="slack" value="<?php echo $data['namaSlack']; ?>">
                         </div>
             <div class="modal-footer">
                      <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
-                     <button type="submit" name="update" class="btn btn-primary">Update</button>
+                     <button type="submit" name="update" class="btn btn-info">Update</button>
                     </div>
                 </form>
             </div>
@@ -159,7 +158,7 @@ require "../config/config.php";
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger delete">Delete</a>
+                <a class="btn btn-danger delete_button">Delete</a>
             </div>
         </div>
     </div>
@@ -184,14 +183,14 @@ $('#addnew').on('show.bs.modal', function(e) {
 
 $(document).on("click", '.edit_button', function(e) {  
     var user = $(this).data('user'); 
-    var namaSlack = $(this).data('namaSlack'); 
+    var slack = $(this).data('slack'); 
     $(".user").val(user); 
-    $(".namaSlack").val(namaSlack);
+    $(".slack").val(slack);
 }); 
 
 
 $('#delete').on('show.bs.modal', function(e) {
-    $(this).find('.delete').attr('href', $(e.relatedTarget).data('href'));
+    $(this).find('.delete_button').attr('href', $(e.relatedTarget).data('href'));
 });
 </script>
 </body>

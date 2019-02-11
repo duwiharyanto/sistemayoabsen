@@ -58,9 +58,13 @@ require "../config/config.php";
                 				<td><?php echo $data['idSlack']; ?></td>
                 				<td><?php echo $data['timestamp']; ?></td>
                 				<td><?php echo $data['message']; ?></td>
-                				<td> 
-                                    <a class="btn btn-info" href="#">Edit</a>
-                                    <a class="btn btn-danger" href="#" data-href="delete_message.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#delete">Delete</a>         
+                				<td>  
+                                    <button type="button" class="btn btn-info edit_button" 
+                                    data-toggle="modal" data-target="#edit"
+                                    data-id="<?php echo $data['idSlack']; ?>"
+                                    data-namaSlack = "<?php echo $data['namaSlack']; ?>"> Edit </button>
+
+                                    <button type="button" class="btn btn-danger" href="#" data-href="delete_message.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#delete">Delete</button>         
                                 </td>
                 			</tr>
                             <?php 
@@ -73,6 +77,36 @@ require "../config/config.php";
 	   </div>
     </div>
 </div>
+
+<!-- Edit Message Modal -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+         <div class="modal-content">
+                 <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Edit Pegawai</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 </div>
+            <div class="modal-body">
+                <div class="fetched-data">
+         <form role="form" action="update_message.php" method="POST">
+               <div class="form-group">
+                     <label for="user">ID Slack:</label><br>
+                        <input type="text" class="form-control idSlack" name="idSlack" id="idSlack" value="<?php echo $data['idSlack']; ?>" readonly>
+            </div>
+            <div class="form-group">
+                     <label for="user">Message:</label><br>
+                        <input type="text" class="form-control message" name="message" id="message" value="<?php echo $data['message']; ?>">
+            </div>
+            <div class="modal-footer">
+                     <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
+                     <button type="submit" name="update" class="btn btn-info">Update</button>
+                    </div>
+                </form>
+            </div>
+         </div>   
+        </div>
+     </div>
+</div> 
 
 <!-- Delete Message Modal -->
 
@@ -105,6 +139,13 @@ require "../config/config.php";
     $(document).ready( function () {
     $('#myTable').DataTable();
 });
+
+$(document).on("click", '.edit_button', function(e) {  
+    var idSlack = $(this).data('idSlack'); 
+    var namaSlack = $(this).data('namaSlack'); 
+    $(".idSlack").val(idSlack); 
+    $(".namaSlack").val(namaSlack);
+});     
 
 $('#delete').on('show.bs.modal', function(e) {
     $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
