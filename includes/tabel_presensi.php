@@ -63,7 +63,9 @@ require '../config/config.php';
                                 <td><?php echo $data['waktu_OUT']; ?></td>
                                 <td><?php echo $data['totalJam']; ?></td>
                                 <td><button type="button" class="btn btn-info" href="#" data-toggle="modal" data-target="#edit">Edit</button>
-                                <button type="button" class='btn btn-danger' href='#' data-toggle="modal" data-target="#delete">Delete</button></td>
+                                <button type="button" class='btn btn-danger' href='#' data-toggle="modal" 
+                                data-href="delete_presensi.php?id=<?php echo $data['id']; ?>"
+                                data-target="#delete">Delete</button></td>
                                 </tr>
                             <?php  
                         }
