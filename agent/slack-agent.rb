@@ -4,7 +4,7 @@ require 'uri'
 require 'json'
 
 Slack.configure do |config|
-  config.token = 'xoxb-394364923254-412989660289-IlW1WFwgCgBPG5qxKmjxZude'
+  config.token = 'xoxb-394364923254-412989660289-mykj5k2zaioNmoY4IUXgDtEp'
   config.logger = Logger.new(STDOUT)
   config.logger.level = Logger::INFO
   raise 'Missing ENV[SLACK_API_TOKEN]!' unless config.token

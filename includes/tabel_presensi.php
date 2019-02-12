@@ -63,15 +63,15 @@ require '../config/config.php';
                                 <td><?php echo $data['waktu_OUT']; ?></td>
                                 <td><?php echo $data['totalJam']; ?></td>
                                 <td><button type="button" class="btn btn-info" href="#" data-toggle="modal" data-target="#edit">Edit</button>
-                                <button type="button" class='btn btn-danger' href='#' data-toggle="modal" data-target="#delete">Delete</button></td>;
-                                </tr>;
+                                <button type="button" class='btn btn-danger' href='#' data-toggle="modal" data-target="#delete">Delete</button></td>
+                                </tr>
                             <?php  
                         }
                       } else {
                         echo "0 results";
                     }
                         ?>
-                	</tbody>
+                </tbody>
             </table>
           </div>      	
 		</div>
