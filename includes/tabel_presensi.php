@@ -39,11 +39,12 @@ date_default_timezone_set('Asia/Jakarta');
           </ol>
 
 		  <div class="table-responsive">
-                <table class="table table-bordered text-center" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-striped text-center" id="myTable" width="100%" cellspacing="0">
                 	<thead>
                 		<tr>
                 			<th>Tanggal</th>
                 			<th>ID Slack</th>
+                            <th>Nama Slack</th>
                 			<th>Waktu IN</th>
                 			<th>Waktu OUT</th>
                 			<th>Total Jam</th>
@@ -52,7 +53,9 @@ date_default_timezone_set('Asia/Jakarta');
                     </thead>
                 		<tbody>
                             <?php
-                            $sql = 'SELECT * FROM tb_presensi';
+                            
+                            //$sql = "SELECT * FROM tb_presensi";
+                           $sql = "SELECT a.tanggal, a.user, b.name, a.waktu_IN, a.waktu_OUT, a.totalJam FROM tb_presensi a INNER JOIN tb_pegawai b ON a.user = b.user";
                             $result = mysqli_query($connection, $sql) or die(mysqli_connect_error());
                             if(mysqli_num_rows($result) > 0){
                               while($data = mysqli_fetch_assoc($result)){
@@ -60,20 +63,25 @@ date_default_timezone_set('Asia/Jakarta');
                                 <tr>
                                 <td><?php echo $data['tanggal']; ?></td>
                                 <td><?php echo $data['user']; ?></td>
+                                <td><?php echo $data['name']; ?></td>
                                 <td><?php echo $data['waktu_IN']; ?></td>
                                 <td><?php echo $data['waktu_OUT']; ?></td>
                                 <td><?php echo $data['totalJam']; ?></td>
                                 <td>
                                 <button type="button" class="btn btn-info edit_button" 
                                     data-toggle="modal" data-target="#edit"
-                                    data-user= "<?php echo $data['user']; ?>"
+                                    data-user = "<?php echo $data['user']; ?>"
+                                    data-name = "<?php  echo $data['name']; ?>"
                                     data-tanggal = "<?php echo $data['tanggal']; ?>"
                                     data-in = "<?php echo $data['waktu_IN'] ?>"
                                     data-out = "<?php echo $data['waktu_OUT'] ?>"
                                     data-total = "<?php echo $data['totalJam'] ?>"> Edit </button>
-                                <button type="button" class='btn btn-danger' href='#' data-toggle="modal" 
+
+                                <button type="button" class='btn btn-danger' 
+                                href='#' data-toggle="modal" 
                                 data-href="delete_presensi.php?id=<?php echo $data['id']; ?>"
-                                data-target="#delete">Delete</button></td>
+                                data-target="#delete">Delete</button>
+                            </td>
                                 </tr>
                             <?php  
                         }
@@ -107,17 +115,21 @@ date_default_timezone_set('Asia/Jakarta');
                      <label for="user">ID Slack:</label><br>
                         <input type="text" class="form-control user" name="user" id="user" value="<?php echo $data['user'] ?>" readonly>
             </div>
+             <div class="form-group">
+                     <label for="name">Nama Slack:</label><br>
+                        <input type="text" class="form-control name" name="name" id="name" value="<?php echo $data['name'] ?>" readonly>
+            </div>
             <div class="form-group">
                     <label for="waktu_IN">Waktu IN:</label><br>
-                        <input type="time" class="form-control waktu_IN" name="waktu_IN" id="waktu_IN" value="<?php echo $data['waktu_IN']; ?>">
+                        <input type="text" class="form-control waktu_IN" name="waktu_IN" id="waktu_IN" value="<?php echo $data['waktu_IN']; ?>">
             </div>
             <div class="form-group">
                     <label for="waktu_OUT">Waktu OUT:</label><br>
-                        <input type="time" class="form-control waktu_OUT" name="waktu_OUT" id="waktu_OUT" value="<?php echo $data['waktu_OUT']; ?>">
+                        <input type="text" class="form-control waktu_OUT" name="waktu_OUT" id="waktu_OUT" value="<?php echo $data['waktu_OUT']; ?>">
             </div>
             <div class="form-group">
                     <label for="totalJam">Total Jam:</label><br>
-                        <input type="time" class="form-control totalJam" name="totalJam" id="totalJam" value="<?php echo $data['totalJam'];?>" readonly>
+                        <input type="text" class="form-control totalJam" name="totalJam" id="totalJam" value="<?php echo $data['totalJam'];?>" readonly>
             </div>
             <div class="modal-footer">
                      <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -165,12 +177,14 @@ date_default_timezone_set('Asia/Jakarta');
 
 $(document).on("click", '.edit_button', function(e) {  
     var tanggal = $(this).data('tanggal'); 
-    var user = $(this).data('user'); 
+    var user = $(this).data('user');
+    var name = $(this).data('name'); 
     var waktu_IN = $(this).data('in');
     var waktu_OUT = $(this).data('out');
     var totalJam = $(this).data('total');
     $(".tanggal").val(tanggal); 
     $(".user").val(user);
+    $(".name").val(name);
     $(".waktu_IN").val(waktu_IN);
     $(".waktu_OUT").val(waktu_OUT);
     $(".totalJam").val(totalJam);

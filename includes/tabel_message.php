@@ -36,7 +36,7 @@ require "../config/config.php";
           </ol>
 
 		  <div class="table-responsive">
-                <table class="table table-bordered text-center" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-striped text-center" id="myTable" width="100%" cellspacing="0">
                 	<thead>
                 		<tr>
                             <th>ID</th>

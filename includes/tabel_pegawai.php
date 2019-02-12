@@ -46,7 +46,7 @@ require "../config/config.php";
         </div>
 
           <div class="table-responsive">
-                <table class="table table-bordered text-center" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-striped text-center" id="myTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -60,7 +60,7 @@ require "../config/config.php";
                             $no = 1; 
                             $sql = mysqli_query($connection, "SELECT * FROM tb_pegawai");
                             while ($data = mysqli_fetch_array($sql)) {
-                            //var_dump($data);
+                            var_dump($data);
                              ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
