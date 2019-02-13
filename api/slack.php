@@ -11,7 +11,8 @@ foreach ((array)$data as $value) {
 
 
 //Tabel Presensi
-$sql = mysqli_query($connection, "SELECT * FROM tb_presensi");
+//$sql = mysqli_query($connection, "SELECT * FROM tb_presensi");
+$sql = mysqli_query($connection, "SELECT * FROM tb_presensi WHERE tanggal = CURDATE() AND user = '".$value['slack_id']."'");
 //print_r(mysqli_num_rows($sql));
 //mysqli_affected_rows($connection)
 

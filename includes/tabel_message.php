@@ -43,7 +43,6 @@ require "../config/config.php";
                 			<th>ID Slack</th>
                 			<th>Timestamp</th>
                 			<th>Message</th>
-                			<th>Opsi</th>
                 		</tr>
                 		<tbody>
                             <?php
@@ -58,10 +57,6 @@ require "../config/config.php";
                 				<td><?php echo $data['user']; ?></td>
                 				<td><?php echo $data['timestamp']; ?></td>
                 				<td><?php echo $data['message']; ?></td>
-                				<td>  
-
-                                    <button type="button" class="btn btn-danger" data-href="delete_message.php?id=<?php echo $data['id']; ?>" data-toggle="modal" data-target="#delete">Delete</button>         
-                                </td>
                 			</tr>
                             <?php 
                             }
@@ -71,26 +66,6 @@ require "../config/config.php";
             </table>
           </div>      	
 	   </div>
-    </div>
-</div>
-
-<!-- Delete Message Modal -->
-
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Delete Confirmation</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-            </div>
-            <div class="modal-body">
-               <p class="text-center"> Do you want to delete this data? </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger delete_button">Delete</a>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -104,11 +79,6 @@ require "../config/config.php";
 <script type="text/javascript">
     $(document).ready( function () {
     $('#myTable').DataTable();
-});
-    
-
-$('#delete').on('show.bs.modal', function(e) {
-    $(this).find('.delete_button').attr('href', $(e.relatedTarget).data('href'));
 });
 
 </script>
