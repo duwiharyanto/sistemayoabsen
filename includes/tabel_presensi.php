@@ -30,14 +30,15 @@ date_default_timezone_set('Asia/Jakarta');
 	 ?> 	 
 
 	<div id="content-wrapper">
-
 	   <div class="container-fluid">
 		 <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a>Tabel Presensi</a>
             </li>
           </ol>
-
+                <div class="row col-3 col-md-offset-8">
+                    <a class="btn btn-primary" href="excel_table.php">Print Excel</a>
+                </div>
                 <table class="table table-responsive w-100 d-block d-md-table table-bordered table-striped text-center" id="myTable" cellspacing="0">
                 	<thead>
                 		<tr>
@@ -89,8 +90,8 @@ date_default_timezone_set('Asia/Jakarta');
                     }
                         ?>
                 </tbody>
-            </table>     	
-		</div>
+            </table>        	
+		</div>  
 	</div>
 </div>
 
