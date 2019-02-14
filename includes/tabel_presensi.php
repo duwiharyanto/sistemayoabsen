@@ -55,7 +55,7 @@ date_default_timezone_set('Asia/Jakarta');
                             <?php
                             
                             //$sql = "SELECT * FROM tb_presensi";
-                           $sql = "SELECT a.tanggal, a.user, b.name, a.waktu_IN, a.waktu_OUT, a.totalJam FROM tb_presensi a INNER JOIN tb_pegawai b ON a.user = b.user";
+                           $sql = "SELECT a.id, a.tanggal, a.user, b.name, a.waktu_IN, a.waktu_OUT, a.totalJam FROM tb_presensi a INNER JOIN tb_pegawai b ON a.user = b.user";
                             $result = mysqli_query($connection, $sql) or die(mysqli_connect_error());
                             if(mysqli_num_rows($result) > 0){
                               while($data = mysqli_fetch_assoc($result)){
@@ -129,7 +129,7 @@ date_default_timezone_set('Asia/Jakarta');
             </div>
             <div class="form-group">
                     <label for="totalJam">Total Jam:</label><br>
-                        <input type="text" class="form-control totalJam" name="totalJam" id="totalJam" value="<?php echo $data['totalJam'];?>" readonly>
+                        <input type="text" class="form-control totalJam" name="totalJam" id="totalJam" value="<?php echo $data['totalJam']?>" readonly>
             </div>
             <div class="modal-footer">
                      <button type="button" name="close" class="btn btn-default" data-dismiss="modal">Close</button>
