@@ -38,8 +38,7 @@ date_default_timezone_set('Asia/Jakarta');
             </li>
           </ol>
 
-		  <div class="table-responsive">
-                <table class="table table-bordered table-striped text-center" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-responsive w-100 d-block d-md-table table-bordered table-striped text-center" id="myTable" cellspacing="0">
                 	<thead>
                 		<tr>
                 			<th>Tanggal</th>
@@ -90,8 +89,7 @@ date_default_timezone_set('Asia/Jakarta');
                     }
                         ?>
                 </tbody>
-            </table>
-          </div>      	
+            </table>     	
 		</div>
 	</div>
 </div>

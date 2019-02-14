@@ -39,14 +39,12 @@ require "../config/config.php";
 
           <div class="container-fluid ">
             <div class="row">
-                <div class="row offset-md-10">
+                <div class="row col-6 col-md-10">
                 <button data-toggle="modal" data-target="#addnew" class="btn btn-primary btn-md">Add New Data</button>
                 </div>
             </div>
-        </div>
 
-          <div class="table-responsive">
-                <table class="table table-bordered table-striped text-center" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-responsive w-100 d-block d-md-table table-bordered table-striped text-center" id="myTable" cellspacing="0">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -60,7 +58,7 @@ require "../config/config.php";
                             $no = 1; 
                             $sql = mysqli_query($connection, "SELECT * FROM tb_pegawai");
                             while ($data = mysqli_fetch_array($sql)) {
-                            var_dump($data);
+                            //var_dump($data);
                              ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
@@ -82,8 +80,8 @@ require "../config/config.php";
                             }
                              ?>
                         </tbody>
-            </table>
-          </div>        
+                </table>
+            </div>        
        </div>
     </div>
 </div>

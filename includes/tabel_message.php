@@ -35,8 +35,7 @@ require "../config/config.php";
             </li>
           </ol>
 
-		  <div class="table-responsive">
-                <table class="table table-bordered table-striped text-center" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-responsive w-100 d-block d-md-table table-bordered table-striped text-center" id="myTable"  cellspacing="0">
                 	<thead>
                 		<tr>
                             <th>ID</th>
@@ -63,8 +62,7 @@ require "../config/config.php";
                              ?>
                 		</tbody>
                 	</thead>
-            </table>
-          </div>      	
+            </table>     	
 	   </div>
     </div>
 </div>
