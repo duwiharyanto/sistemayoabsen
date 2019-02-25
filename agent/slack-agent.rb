@@ -21,7 +21,8 @@ def process(data)
   end
   
   # please change URI using your API
-  uri = URI.parse("http://localhost/ayoabsen/api/slack.php")
+  uri = URI.parse("http://presensi.arisoft-id.com/api/slack.php")
+  #uri = URI.parse("http://localhost/ayoabsen/api/slack.php")
 
   header = {'Content-Type': 'text/json'}
   user = {user: {

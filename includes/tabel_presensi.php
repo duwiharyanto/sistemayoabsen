@@ -36,10 +36,10 @@ date_default_timezone_set('Asia/Jakarta');
               <a>Tabel Presensi</a>
             </li>
           </ol>
-                <div class="row col-3 col-md-offset-8">
-                    <a class="btn btn-primary" href="excel_table.php">Print Excel</a>
-                </div>
                 <table class="table table-responsive w-100 d-block d-md-table table-bordered table-striped text-center" id="myTable" cellspacing="0">
+                     <div class="float-md-left">
+                        <a class="btn btn-primary" href="excel_table.php">Print</a>
+                     </div>
                 	<thead>
                 		<tr>
                 			<th>Tanggal</th>

@@ -21,7 +21,7 @@ if (mysqli_num_rows($sql) > 0 ) {
 } else {
    echo "0 results";   
    {
-   	$query = mysqli_query($connection, "INSERT INTO tb_presensi (id, tanggal, user, waktu_IN, waktu_OUT, totalJam) VALUES('" ."', '".$value['timestamp']."', '".$value['slack_id']."', '".$value['timestamp']."', '".$value['00:00:00']."', '".$value['00:00:00']."') ON DUPLICATE KEY UPDATE tanggal = '".$value['timestamp']."', user = '".$value['slack_id']."', waktu_IN = '".$value['timestamp']."';");
+   	$query = mysqli_query($connection, "INSERT INTO tb_presensi (id, tanggal, user, waktu_IN, waktu_OUT, totalJam) VALUES('" ."', '".$value['timestamp']."', '".$value['slack_id']."', '".$value['timestamp']."', '00:00:00', '00:00:00') ON DUPLICATE KEY UPDATE tanggal = '".$value['timestamp']."', user = '".$value['slack_id']."', waktu_IN = '".$value['timestamp']."';");
 	}
  }
 

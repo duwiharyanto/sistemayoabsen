@@ -39,9 +39,7 @@ require "../config/config.php";
 
           <div class="container-fluid ">
             <div class="row">
-                <div class="row col-6 col-md-10">
-                <button data-toggle="modal" data-target="#addnew" class="btn btn-primary btn-md">Add New Data</button>
-                </div>
+                <button data-toggle="modal" data-target="#addnew" class="btn btn-primary float-md-right">Add New Data</button>
             </div>
 
                 <table class="table table-responsive w-100 d-block d-md-table table-bordered table-striped text-center" id="myTable" cellspacing="0">
